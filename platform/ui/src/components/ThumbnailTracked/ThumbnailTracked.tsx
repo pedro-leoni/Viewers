@@ -33,12 +33,12 @@ function ThumbnailTracked({
   return (
     <div
       className={classnames(
-        'flex flex-1 cursor-pointer flex-row px-3 py-2 outline-none',
+        'flex flex-1 cursor-pointer flex-row py-2 outline-none',
         className
       )}
       id={`thumbnail-${displaySetInstanceUID}`}
     >
-      <div className="flex-2 flex flex-col items-center">
+      {/* <div className="flex-2 flex flex-col items-center">
         <div
           className={classnames(
             'relative mb-2 flex cursor-pointer flex-col items-center justify-start p-2',
@@ -79,7 +79,7 @@ function ThumbnailTracked({
             />
           </div>
         )}
-      </div>
+      </div> */}
       <Thumbnail
         displaySetInstanceUID={displaySetInstanceUID}
         imageSrc={imageSrc}

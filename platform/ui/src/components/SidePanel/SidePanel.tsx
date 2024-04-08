@@ -210,7 +210,7 @@ const SidePanel = ({
       <>
         <div
           className={classnames(
-            'bg-secondary-dark flex h-[28px] w-full cursor-pointer items-center rounded-md',
+            'bg-primary-dark flex h-[28px] w-full cursor-pointer items-center rounded-md',
             side === 'left' ? 'justify-end pr-2' : 'justify-start pl-2'
           )}
           onClick={() => {
@@ -348,7 +348,7 @@ const SidePanel = ({
     return (
       <div
         className={classnames(
-          'text-primary-active flex grow cursor-pointer justify-center self-center text-[13px]'
+          'text-primary-active flex grow cursor-pointer justify-center self-center !text-transparent text-[16px]'
         )}
         style={{
           ...(side === 'left'
@@ -374,7 +374,7 @@ const SidePanel = ({
 
   return (
     <div
-      className={classnames(className, baseClasses, classesMap[openStatus][side])}
+      className={`${classnames(className, baseClasses, classesMap[openStatus][side])} !bg-[#0f1012]`}
       style={style}
     >
       {panelOpen ? (

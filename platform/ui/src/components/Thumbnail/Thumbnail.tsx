@@ -53,8 +53,8 @@ const Thumbnail = ({
           className={classnames(
             'min-h-32 flex flex-1 items-center justify-center overflow-hidden rounded-md bg-black text-base text-white',
             isActive
-              ? 'border-primary-light border-2'
-              : 'border-secondary-light border hover:border-blue-300'
+              ? 'border-primary-main border-[1px]'
+              : ''
           )}
           style={{
             margin: isActive ? '0' : '1px',

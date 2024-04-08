@@ -39,7 +39,7 @@ function Header({
       isSticky={isSticky}
       {...props}
     >
-      <div className="relative h-[48px] items-center ">
+      <div className="relative h-[58px] items-center bg-[#070809]">
         <div className="absolute left-0 top-1/2 flex -translate-y-1/2 items-center">
           <div
             className={classNames(
@@ -55,7 +55,7 @@ function Header({
                 className="text-primary-active w-8"
               />
             )}
-            <div className="ml-1">
+            <div className="ml-1 pl-1">
               {WhiteLabeling?.createLogoComponentFn?.(React, props) || (
                 <svg
                   width="100"
@@ -140,7 +140,7 @@ function Header({
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform">
           <div className="flex items-center justify-center space-x-2">{children}</div>
         </div>
-        <div className="absolute right-0 top-1/2 flex -translate-y-1/2 select-none items-center">
+        <div className="absolute right-0 top-1/2 flex -translate-y-1/2 select-none items-center pr-1">
           {(showPatientInfo === PatientInfoVisibility.VISIBLE ||
             showPatientInfo === PatientInfoVisibility.VISIBLE_COLLAPSED) && (
             <HeaderPatientInfo servicesManager={servicesManager} />
@@ -154,7 +154,6 @@ function Header({
               alignment="right"
             >
               <IconButton
-                id={'options-settings-icon'}
                 variant="text"
                 color="inherit"
                 size="initial"

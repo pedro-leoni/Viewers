@@ -65,10 +65,7 @@ function ViewportPane({
       onWheel={onInteractionHandler}
       className={classnames(
         'group h-full w-full overflow-hidden rounded-md transition duration-300',
-        {
-          'border-primary-light border-2': isActive,
-          'border-2 border-transparent': !isActive,
-        },
+        
         className
       )}
       style={{

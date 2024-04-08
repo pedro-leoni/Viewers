@@ -108,9 +108,12 @@ function ViewerLayout({
         extensionManager={extensionManager}
         servicesManager={servicesManager}
       />
+      <div className='h-[48px] bg-primary-dark text-white'>
+        
+      </div>
       <div
-        className="relative flex w-full flex-row flex-nowrap items-stretch overflow-hidden bg-black"
-        style={{ height: 'calc(100vh - 52px' }}
+        className="relative flex w-full flex-row flex-nowrap items-stretch overflow-hidden bg-[#0f1012]"
+        style={{ height: 'calc(100vh - 100px' }}
       >
         <React.Fragment>
           {showLoadingIndicator && <LoadingIndicatorProgress className="h-full w-full bg-black" />}

@@ -34,6 +34,10 @@
 }
 
 /* INVISIBLE SCROLLBAR */
+.invisible-scrollbar:hover {
+  overflow-y: auto;
+}
+
 .invisible-scrollbar {
   scrollbar-width: none;
 }

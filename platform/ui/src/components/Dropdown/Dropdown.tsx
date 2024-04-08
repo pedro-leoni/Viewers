@@ -72,9 +72,7 @@ const Dropdown = ({
                   <Typography
                     key={index}
                     className={itemsClassName}
-                  >
-                    {line}
-                  </Typography>
+                  ></Typography>
                 ))}
               </div>
             )}

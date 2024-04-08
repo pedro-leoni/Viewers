@@ -12,7 +12,7 @@ export function Toolbar({ servicesManager }) {
   if (!toolbarButtons.length) {
     return null;
   }
-
+  console.log(toolbarButtons)
   return (
     <>
       {toolbarButtons.map(toolDef => {
