@@ -51,6 +51,19 @@ function App({ config, defaultExtensions, defaultModes }) {
     return null;
   }
 
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker
+        .register('/sharedarraybuffer-worker.js')
+        .then(registration => {
+          console.log('Service Worker registered: ', registration);
+        })
+        .catch(error => {
+          console.log('Service Worker registration failed: ', error);
+        });
+    });
+  }
+
   // Set above for named export
   commandsManager = init.commandsManager;
   extensionManager = init.extensionManager;
