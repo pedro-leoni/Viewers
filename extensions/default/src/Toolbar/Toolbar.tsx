@@ -6,13 +6,11 @@ import { useToolbar } from '@ohif/core';
 export function Toolbar({ servicesManager }) {
   const { toolbarButtons, onInteraction } = useToolbar({
     servicesManager,
-    buttonSection: 'primary',
   });
 
   if (!toolbarButtons.length) {
     return null;
   }
-  console.log(toolbarButtons)
   return (
     <>
       {toolbarButtons.map(toolDef => {
@@ -29,6 +27,7 @@ export function Toolbar({ servicesManager }) {
             id={id}
             onInteraction={onInteraction}
             servicesManager={servicesManager}
+            className="h-full"
             {...componentProps}
           />
         );
@@ -40,12 +39,12 @@ export function Toolbar({ servicesManager }) {
             content={componentProps.label}
             secondaryContent={'Not available on the current viewport'}
           >
-            <div className={classnames('mr-1')}>{tool}</div>
+            <div className="text-basic-white min-h-full">{tool}</div>
           </Tooltip>
         ) : (
           <div
             key={id}
-            className="mr-1"
+            className="text-basic-white min-h-full"
           >
             {tool}
           </div>

@@ -109,7 +109,7 @@ function ViewerHeader({ hotkeysManager, extensionManager, servicesManager }) {
       servicesManager={servicesManager}
     >
       <ErrorBoundary context="Primary Toolbar">
-        <div className="relative flex justify-center">
+        <div className="flex flex-grow items-center justify-center min-h-[56px]">
           <Toolbar servicesManager={servicesManager} />
         </div>
       </ErrorBoundary>

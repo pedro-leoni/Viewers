@@ -1,9 +1,10 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import { useState } from 'react';
 
 const baseClasses =
-  'text-center items-center justify-center transition duration-300 ease-in-out outline-none font-bold focus:outline-none';
+  'text-center h-full items-center w-[72px] justify-center px-5 transition duration-300 ease-in-out outline-none font-bold focus:outline-none';
 
 const roundedClasses = {
   none: '',
@@ -73,6 +74,7 @@ const fullWidthClasses = {
 
 const IconButton = ({
   children,
+  name,
   variant,
   color,
   size,
@@ -86,8 +88,9 @@ const IconButton = ({
   ...rest
 }) => {
   const buttonElement = useRef(null);
+  const storedValue = localStorage.getItem('name')
 
-  const handleOnClick = e => {
+  const handleOnClick = async (e) => {
     buttonElement.current.blur();
     onClick(e);
   };
@@ -96,15 +99,14 @@ const IconButton = ({
 
   return (
     <button
-      className={classnames(
+      className={`${classnames(
         baseClasses,
         variantClasses[variant][color],
-        roundedClasses[rounded],
         sizeClasses[size],
         fullWidthClasses[fullWidth],
         disabledClasses[disabled],
         className
-      )}
+      )} ${(storedValue === name) && "!border-b-[2px] !border-b-[#2563eb] !bg-[#16191b]"} `}
       style={{
         padding,
       }}
@@ -122,7 +124,7 @@ const IconButton = ({
 };
 
 IconButton.defaultProps = {
-  onClick: () => {},
+  onClick: () => { },
   color: 'default',
   disabled: false,
   fullWidth: false,

@@ -9,12 +9,12 @@ import Tooltip from '../Tooltip';
 import ListMenu from '../ListMenu';
 
 const baseClasses = {
-  Button: 'flex items-center rounded-md border-transparent group/button',
+  Button: 'flex items-center rounded-md border-transparent !bg-transparent group/button min-h-[56px]',
   Primary:
     'h-full border-l-2 border-t-2 border-b-2 rounded-tl-md rounded-bl-md group/primary !pl-2 !py-2',
   Secondary:
-    'h-full flex items-center justify-center rounded-tr-md rounded-br-md w-4 border-2 border-transparent group/secondary',
-  SecondaryIcon: 'w-4 h-full stroke-1',
+    'h-full flex items-center justify-center rounded-tr-md rounded-br-md w-4 border-2 border-transparent',
+  SecondaryIcon: 'w-4 h-full stroke-1 mr-3 ml-3 stroke-white fill-white',
   Separator: 'border-l py-3 ml-0.5',
   Content: 'absolute z-10 top-0 mt-12',
 };
@@ -23,26 +23,26 @@ const classes = {
   Button: ({ isExpanded }) =>
     classNames(
       baseClasses.Button,
-      !isExpanded && 'hover:!bg-primary-dark hover:border-primary-dark'
+      !isExpanded && 'hover:!bg-transparent hover:border-primary-dark'
     ),
-  Interface: 'h-full flex flex-row items-center',
+  Interface: 'h-full flex flex-row items-center h-[56px]',
   Primary: ({ isExpanded, isActive }) =>
     classNames(
       baseClasses.Primary,
       isActive
         ? isExpanded
-          ? 'border-primary-dark !bg-primary-dark hover:border-primary-dark !text-primary-light'
-          : 'border-primary-light bg-primary-light border-2 rounded-md !p-2'
-        : `focus:!text-black focus:!rounded-md focus:!border-primary-light focus:!bg-primary-light ${isExpanded ? 'border-primary-dark bg-primary-dark !text-primary-light' : 'border-secondary-dark bg-secondary-dark group-hover/button:border-primary-dark group-hover/button:text-primary-light hover:!bg-primary-dark hover:border-primary-dark focus:!text-black'}`
+          ? 'border-primary-dark !bg-transparent hover:border-primary-dark !text-primary-light'
+          : 'border-primary-light border-2 rounded-md !p-2 !bg-transparent'
+        : `focus:!text-black focus:!rounded-md focus:!border-primary-light focus:!bg-primary-light !bg-transparent ${isExpanded ? '!bg-transparent border-primary-dark !text-primary-light' : 'border-secondary-dark group-hover/button:border-primary-dark group-hover/button:text-primary-light !bg-transparent focus:!text-black'}`
     ),
   Secondary: ({ isExpanded, primary }) =>
     classNames(
       baseClasses.Secondary,
       isExpanded
-        ? 'bg-primary-light !rounded-tr-md !rounded-br-md'
+        ? ' !rounded-tr-md !rounded-br-md'
         : primary.isActive
-          ? 'bg-secondary-dark'
-          : 'hover:bg-primary-dark bg-secondary-dark group-hover/button:border-primary-dark'
+          ? '!bg-transparent'
+          : '!bg-transparent !bg-transparent'
     ),
   SecondaryIcon: ({ isExpanded }) =>
     classNames(
@@ -122,7 +122,7 @@ const SplitButton = ({
       >
         <div
           className={classes.Button({ ...state })}
-          style={{ height: '40px' }}
+          style={{ height: '40px', border: "1px" }}
           onMouseEnter={() => setHover(true)}
           onMouseLeave={() => setHover(false)}
         >
@@ -138,7 +138,6 @@ const SplitButton = ({
                 data-cy={`${groupId}-split-button-primary`}
               />
             </div>
-            <div className={classes.Separator({ ...state, primary })}></div>
             <div
               className={classes.Secondary({ ...state, primary })}
               onClick={toggleExpanded}

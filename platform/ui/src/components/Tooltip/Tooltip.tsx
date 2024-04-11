@@ -59,7 +59,7 @@ const Tooltip = ({
 
   return (
     <div
-      className={classnames('relative', className)}
+      className={classnames('relative flex items-center justify-center h-[56px]', className)}
       onMouseOver={handleMouseOver}
       onFocus={handleMouseOver}
       onMouseOut={handleMouseOut}
@@ -68,14 +68,14 @@ const Tooltip = ({
     >
       {children}
       <div
-        className={classnames(`tooltip tooltip-${position}`, {
+        className={classnames(`tooltip tooltip-bottom`, {
           block: isOpen,
           hidden: !isOpen,
         })}
       >
         <div
           className={classnames(
-            'tooltip-box bg-primary-dark border-secondary-light w-max-content relative inset-x-auto top-full rounded border text-base text-white',
+            'tooltip-box bg-primary-dark border-secondary-light w-max-content absolute left-[-14px] top-[35px] inset-x-auto rounded border text-base text-white',
             {
               'py-[6px] px-[8px]': !tight,
             }
@@ -86,8 +86,8 @@ const Tooltip = ({
             {typeof secondaryContent === 'string' ? t(secondaryContent) : secondaryContent}
           </div>
           <svg
-            className="text-primary-dark stroke-secondary-light absolute h-4"
-            style={arrowPositionStyle[position]}
+            className="text-primary-dark stroke-white absolute h-4 bottom-0"
+            style={arrowPositionStyle["bottom-left"]}
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
           >

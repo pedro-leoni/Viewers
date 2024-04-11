@@ -26,12 +26,10 @@ const ToolbarButton = ({
   const iconEl = icon ? <Icon name={icon} /> : <div>{label || 'Missing icon and label'}</div>;
 
   const sizeToUse = size ?? 'toolbar';
-  const toolTipClassNameToUse =
-    toolTipClassName !== undefined
-      ? toolTipClassName
-      : sizeToUse === 'toolbar'
-        ? 'w-[40px] h-[40px]'
-        : 'w-[32px] h-[32px]';
+
+  const setItem = () => {
+    return label === ("Capture" || "Formato") ? localStorage.setItem('name', "") : localStorage.setItem('name', label)
+  }
 
   return (
     <div key={id}>
@@ -40,13 +38,12 @@ const ToolbarButton = ({
         content={shouldShowDropdown ? dropdownContent : label}
         secondaryContent={disabled ? 'Not available on the current viewport' : null}
         tight={shouldShowDropdown}
-        className={toolTipClassNameToUse}
         isDisabled={disableToolTip}
       >
         <IconButton
           size={sizeToUse}
-          className={classNames(className, disabled ? '!cursor-default' : '')}
           onClick={() => {
+            setItem()
             onInteraction({
               itemId: id,
               commands,
