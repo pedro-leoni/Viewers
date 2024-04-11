@@ -38,9 +38,9 @@ function Header({
     <NavBar
       isSticky={isSticky}
       {...props}
-      className='flex items-center justify-between'
+      className="flex items-center justify-between"
     >
-      <div className="flex items-center justify-center h-[58px]">
+      <div className="flex h-[58px] items-center justify-center">
         <div
           className={classNames(
             'mr-3 inline-flex items-center justify-center',
@@ -141,26 +141,9 @@ function Header({
       <div className="flex items-center pr-1">
         {(showPatientInfo === PatientInfoVisibility.VISIBLE ||
           showPatientInfo === PatientInfoVisibility.VISIBLE_COLLAPSED) && (
-            <HeaderPatientInfo servicesManager={servicesManager} />
-          )}
+          <HeaderPatientInfo servicesManager={servicesManager} />
+        )}
         <div className="border-primary-dark mx-1.5 h-[25px] border-r"></div>
-        <div className="flex-shrink-0">
-          <Dropdown
-            id="options"
-            showDropdownIcon={false}
-            list={menuOptions}
-            alignment="right"
-          >
-            <IconButton
-              variant="text"
-              color="inherit"
-              size="initial"
-              className="text-primary-active hover:!bg-white h-full w-full"
-            >
-              <Icon name="icon-settings" />
-            </IconButton>
-          </Dropdown>
-        </div>
       </div>
     </NavBar>
   );

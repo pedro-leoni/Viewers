@@ -45,6 +45,19 @@ function ViewerLayout({
     };
   }, []);
 
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker
+        .register('/sharedarraybuffer-worker.js')
+        .then(registration => {
+          console.log('Service Worker registered: ', registration);
+        })
+        .catch(error => {
+          console.log('Service Worker registration failed: ', error);
+        });
+    });
+  }
+
   const getComponent = id => {
     const entry = extensionManager.getModuleEntry(id);
 
@@ -108,12 +121,9 @@ function ViewerLayout({
         extensionManager={extensionManager}
         servicesManager={servicesManager}
       />
-      <div className='h-[48px] bg-primary-dark text-white'>
-        
-      </div>
       <div
         className="relative flex w-full flex-row flex-nowrap items-stretch overflow-hidden bg-[#0f1012]"
-        style={{ height: 'calc(100vh - 100px' }}
+        style={{ height: 'calc(100vh - 52px' }}
       >
         <React.Fragment>
           {showLoadingIndicator && <LoadingIndicatorProgress className="h-full w-full bg-black" />}

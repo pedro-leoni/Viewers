@@ -348,7 +348,7 @@ const SidePanel = ({
     return (
       <div
         className={classnames(
-          'text-primary-active flex grow cursor-pointer justify-center self-center !text-transparent text-[16px]'
+          'text-primary-active mb-5 flex grow cursor-pointer justify-center self-center text-[12px] font-bold'
         )}
         style={{
           ...(side === 'left'
@@ -358,7 +358,9 @@ const SidePanel = ({
         data-cy={`${tabs[0].name}-btn`}
         onClick={() => updatePanelOpen(prev => !prev)}
       >
-        <span>{tabs[0].label}</span>
+        <span className="!border-primary-main hover:bg-secondary-main mr-2 w-full rounded-2xl border-2 py-1 text-center">
+          {tabs[0].label}
+        </span>
       </div>
     );
   };
